@@ -1,0 +1,15 @@
+{
+  "stage": "exploratory_development",
+  "seed_start": 1100,
+  "seeds": 8,
+  "antenna_user_pairs": [[64, 16], [64, 32]],
+  "correlations": [0.0, 0.7],
+  "snr_db": [10.0, 20.0],
+  "error_fractions": [0.001, 0.05],
+  "qam_order": 16,
+  "vectors_per_channel": 8,
+  "relative_residual_thresholds": [0.0001, 0.0003, 0.001, 0.003, 0.01, 0.03, 0.1, 0.2],
+  "energy_budget_thresholds": [0.0001, 0.0003, 0.001, 0.003, 0.01, 0.03, 0.1, 0.3],
+  "fixed_iterations": [2, 3, 4, 6, 8, 12, 16, 24, 32],
+  "notes": "Controlled conditional CSI error and exact LMMSE debiasing gains are diagnostic oracle inputs. No coded BLER or production runtime claim is supported by this experiment."
+}

@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=70", "wheel", "pybind11>=2.12"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mimo-receiver-study"
+version = "0.1.0"
+description = "Reproducible reliability/computation experiments for MIMO-OFDM receivers"
+requires-python = ">=3.11"
+dependencies = ["numpy", "scipy", "matplotlib", "pandas", "PyYAML", "py3gpp"]
+
+[project.optional-dependencies]
+dev = ["pytest", "pybind11", "requests", "pypdf"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

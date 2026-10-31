@@ -1,0 +1,11 @@
+.venv/
+.cache/
+build/
+vendor/
+__pycache__/
+*.pyc
+*.so
+*.dylib
+*.egg-info/
+.pytest_cache/
+results/reproduced_*/

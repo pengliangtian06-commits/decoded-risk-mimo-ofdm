@@ -1,0 +1,28 @@
+{
+  "stage": "exploratory_development",
+  "seed_start": 1120,
+  "seeds": 8,
+  "antenna_user_pairs": [[64, 16], [64, 32]],
+  "correlations": [0.0, 0.7],
+  "snr_db": [8.0, 10.0, 12.0, 14.0],
+  "fft_size": 512,
+  "cyclic_prefix": 32,
+  "taps": 8,
+  "qam_order": 16,
+  "decoder_iterations": 20,
+  "workers": 4,
+  "methods": [
+    {"name": "Exact LMMSE", "mode": "exact", "threshold": 0},
+    {"name": "Residual 0.003", "mode": "relative_residual", "threshold": 0.003},
+    {"name": "Residual 0.01", "mode": "relative_residual", "threshold": 0.01},
+    {"name": "Residual 0.03", "mode": "relative_residual", "threshold": 0.03},
+    {"name": "Noise residual 0.001", "mode": "noise_residual", "threshold": 0.001},
+    {"name": "Noise residual 0.003", "mode": "noise_residual", "threshold": 0.003},
+    {"name": "Decision residual 0.001", "mode": "decision_residual", "threshold": 0.001},
+    {"name": "Decision residual 0.003", "mode": "decision_residual", "threshold": 0.003},
+    {"name": "Radau 0.003", "mode": "radau", "threshold": 0.003},
+    {"name": "Fixed 6", "mode": "fixed", "threshold": 6},
+    {"name": "Fixed 8", "mode": "fixed", "threshold": 8}
+  ],
+  "scope": "Coded-reliability screening with exact inverse-diagonal soft calibration shared across methods. Not a production timing comparison; solver reuse and cheap LLR calibration still require separate engineering evaluation."
+}

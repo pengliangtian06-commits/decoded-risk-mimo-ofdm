@@ -1,0 +1,33 @@
+{
+  "stage": "exploratory_development",
+  "seed_root": 1137,
+  "draws_per_condition": 4,
+  "workers": 1,
+  "fft_size": 512,
+  "cyclic_prefix": 32,
+  "taps": 8,
+  "qam_order": 16,
+  "decoder_iterations": 20,
+  "antenna_user_pairs": [[64,16],[64,32]],
+  "correlations": [0.0,0.7],
+  "snr_db": [10,12,14],
+  "policies": [
+    {"name":"exact","backend":"auto_cholesky"},
+    {"name":"direct-i8","backend":"auto_cholesky","soft":"interpolate","anchor_stride":8},
+    {"name":"direct-i16","backend":"auto_cholesky","soft":"interpolate","anchor_stride":16},
+    {"name":"direct-i32","backend":"auto_cholesky","soft":"interpolate","anchor_stride":32},
+    {"name":"direct-i64","backend":"auto_cholesky","soft":"interpolate","anchor_stride":64},
+    {"name":"pcg-exact","backend":"pcg","threshold":0.001},
+    {"name":"pcg-diagonal","backend":"pcg","threshold":0.001,"soft":"diagonal"},
+    {"name":"pcg-i16","backend":"pcg","threshold":0.001,"soft":"interpolate","anchor_stride":16},
+    {"name":"pcg-i16-loose","backend":"pcg","threshold":0.01,"soft":"interpolate","anchor_stride":16},
+    {"name":"pcg-i16-noise","backend":"pcg","mode":"noise_residual","threshold":0.001,"soft":"interpolate","anchor_stride":16},
+    {"name":"pcg-i32-noise","backend":"pcg","mode":"noise_residual","threshold":0.001,"soft":"interpolate","anchor_stride":32},
+    {"name":"fixed6-exact","backend":"pcg","mode":"fixed","threshold":6},
+    {"name":"fixed6-diagonal","backend":"pcg","mode":"fixed","threshold":6,"soft":"diagonal"},
+    {"name":"fixed6-i16","backend":"pcg","mode":"fixed","threshold":6,"soft":"interpolate","anchor_stride":16},
+    {"name":"yin6","backend":"cg","mode":"fixed","threshold":6,"soft":"yin_approx"},
+    {"name":"yin8","backend":"cg","mode":"fixed","threshold":8,"soft":"yin_approx"},
+    {"name":"mf-i16","backend":"matrixfree_pcg","threshold":0.001,"soft":"interpolate","anchor_stride":16}
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "protocol": "joint-budget-study-v0.2",
+  "created_utc": "2026-10-31T10:07:10.629821+00:00",
+  "settings": {
+    "stage": "exploratory_development",
+    "seed_root": 1137,
+    "draws_per_condition": 4,
+    "workers": 1,
+    "fft_size": 512,
+    "cyclic_prefix": 32,
+    "taps": 8,
+    "qam_order": 16,
+    "decoder_iterations": 20,
+    "antenna_user_pairs": [
+      [
+        64,
+        16
+      ],
+      [
+        64,
+        32
+      ]
+    ],
+    "correlations": [
+      0.0,
+      0.7
+    ],
+    "snr_db": [
+      10,
+      12,
+      14
+    ],
+    "policies": [
+      {
+        "name": "exact",
+        "backend": "auto_cholesky"
+      },
+      {
+        "name": "direct-i8",
+        "backend": "auto_cholesky",
+        "soft": "interpolate",
+        "anchor_stride": 8
+      },
+      {
+        "name": "direct-i16",
+        "backend": "auto_cholesky",
+        "soft": "interpolate",
+        "anchor_stride": 16
+      },
+      {
+        "name": "direct-i32",
+        "backend": "auto_cholesky",
+        "soft": "interpolate",
+        "anchor_stride": 32
+      },
+      {
+        "name": "direct-i64",
+        "backend": "auto_cholesky",
+        "soft": "interpolate",
+        "anchor_stride": 64
+      },
+      {
+        "name": "pcg-exact",
+        "backend": "pcg",
+        "threshold": 0.001
+      },
+      {
+        "name": "pcg-diagonal",
+        "backend": "pcg",
+        "threshold": 0.001,
+        "soft": "diagonal"
+      },
+      {
+        "name": "pcg-i16",
+        "backend": "pcg",
+        "threshold": 0.001,
+        "soft": "interpolate",
+        "anchor_stride": 16
+      },
+      {
+        "name": "pcg-i16-loose",
+        "backend": "pcg",
+        "threshold": 0.01,
+        "soft": "interpolate",
+        "anchor_stride": 16
+      },
+      {
+        "name": "pcg-i16-noise",
+        "backend": "pcg",
+        "mode": "noise_residual",
+        "threshold": 0.001,
+        "soft": "interpolate",
+        "anchor_stride": 16
+      },
+      {
+        "name": "pcg-i32-noise",
+        "backend": "pcg",
+        "mode": "noise_residual",
+        "threshold": 0.001,
+        "soft": "interpolate",
+        "anchor_stride": 32
+      },
+      {
+        "name": "fixed6-exact",
+        "backend": "pcg",
+        "mode": "fixed",
+        "threshold": 6
+      },
+      {
+        "name": "fixed6-diagonal",
+        "backend": "pcg",
+        "mode": "fixed",
+        "threshold": 6,
+        "soft": "diagonal"
+      },
+      {
+        "name": "fixed6-i16",
+        "backend": "pcg",
+        "mode": "fixed",
+        "threshold": 6,
+        "soft": "interpolate",
+        "anchor_stride": 16
+      },
+      {
+        "name": "yin6",
+        "backend": "cg",
+        "mode": "fixed",
+        "threshold": 6,
+        "soft": "yin_approx"
+      },
+      {
+        "name": "yin8",
+        "backend": "cg",
+        "mode": "fixed",
+        "threshold": 8,
+        "soft": "yin_approx"
+      },
+      {
+        "name": "mf-i16",
+        "backend": "matrixfree_pcg",
+        "threshold": 0.001,
+        "soft": "interpolate",
+        "anchor_stride": 16
+      }
+    ]
+  },
+  "source_hashes": {
+    "cpp/core.cpp": "545207057a196125d473ed02807fcde0d35bec87db2abc0843e2cdd5c51beccc",
+    "scripts/run_locked_study.py": "d0063727c2e1a75cff9108cc5c4987f2611cf701db583817e72fa800ba490f0d",
+    "scripts/run_soft_output_screen.py": "30df460616169478e1ee6b37bcf4647ef8efe484bde4fc46dd1418f198b1c564",
+    "scripts/freeze_joint_study.py": "e62d7601b17dc3beeef1af89f58f324c0336fa50a7acb2c8b83cc2d4cbc06cd0",
+    "setup.py": "fa72cd7e7e5f2baa07ce24dcefbe69dc423a92978111877836ea0b302d5d0ef4",
+    "pyproject.toml": "f4c5d9495cced8799c628d1fc8334b4edf63a49eafb0756f38d6c630987e03dc",
+    "requirements-lock.txt": "9354e1edcb7ad006fb141bbc578f8dd4610afaa7e1fad6b2404d04603a4c10bc",
+    "configs/joint_budget_development.json": "48963124527dbfe4adec33a755966b48237d2ffd52fcb4a1eb5ecdf5284f9324",
+    "docs/PROTOCOL_002.md": "a98ce3f660dc9e7b92483f1e7f11af3b0ffc0536f67c2458755acd8d4dac9f9a",
+    "src/mimo_receiver/__init__.py": "b2eaeb0538b68c812695251c0e292bc5b757b4bb0983e55268584a38a0468dbb",
+    "src/mimo_receiver/channels.py": "74bb93d6e84b1cf21831d706013cc53be18dcc70215fc7edeb762dc5c21f4ade",
+    "src/mimo_receiver/coding.py": "99bd48146d7be4036533debccc167eedfe6e087718384cb720d05f2204373922",
+    "src/mimo_receiver/ofdm.py": "09f36ed7acfcdbd9ab3dc04a6c542dafa5fd91cd1e2cf79abc5cb18194b05077",
+    "src/mimo_receiver/qam.py": "69618202b743916a64807a5ac3fa0fdac8ed4f77032e8a4617b79ec3f0bf4b34",
+    "src/mimo_receiver/receiver.py": "c0b6fe5ee73747f6c757c5f10e42b72abfc89cf432f5a75644732816e65030c8",
+    "src/mimo_receiver/risk.py": "a2edc598c194222c06cbe4111f13e71bd16442c09c89844ad33a8921bfe82d1e",
+    "src/mimo_receiver/soft_reference.py": "bc66720750e2536684c24c62ba5ee5d448d229e00048633e2935bcd97986e269",
+    "src/mimo_receiver/solvers.py": "1f631ce1a0c62968c42f570724209d41abb6653533fe0d7c52a7a309fe97a76e",
+    "src/mimo_receiver/tdl.py": "75686b38e40212a99eef3fcd9eaa911344740e897305c984f71fa942c5b2159b",
+    "tests/test_coding.py": "ac4a9a5dc820f637ff975a56be0cd3219216ec4ce4ed161855860a505b74b022",
+    "tests/test_cpp_core.py": "a296e49792af58e6c3528a982d29973613bf6c1d4f5ce75aa20152162494630d",
+    "tests/test_demapper_tdl.py": "bfc75c276f206dfc8149ad3f70a8e5c4c6cac4db379790b98514f452b36017fd",
+    "tests/test_numerical_foundations.py": "e332c0d73981a38e9d6ade2c1dae3000a4b442dfa6191377bc692c2b58e8591b",
+    "tests/test_ofdm.py": "874bda3ae660245763dc5935ae7f686a06f0430fb45e040af5228a73ad473a95",
+    "tests/test_risk_receiver.py": "666cd21c8643c58675865330c6936908c6d8f59176bbe6d739226aa8ef690bd3"
+  },
+  "extension_sha256": "354747b6097346eb55e128a41348668e2fe8ed3cc972c1168e80d9a3ca71d5ed",
+  "workers": 4,
+  "development_costs": {
+    "exact": 0.03773448083332672,
+    "direct-i8": 0.0347322438953294,
+    "direct-i16": 0.034749986230053764,
+    "direct-i32": 0.034418445373679184,
+    "direct-i64": 0.03449309283405455,
+    "pcg-exact": 0.04641266508284995,
+    "pcg-diagonal": 0.036790852438268,
+    "pcg-i16": 0.03735519608320222,
+    "pcg-i16-loose": 0.036237709249083615,
+    "pcg-i16-noise": 0.036465945331959425,
+    "pcg-i32-noise": 0.03604230202108738,
+    "fixed6-exact": 0.044854493853563326,
+    "fixed6-diagonal": 0.03555895570692277,
+    "fixed6-i16": 0.03635014679184678,
+    "yin6": 0.037453562584232714,
+    "yin8": 0.03769752510591692,
+    "mf-i16": 0.043188715375436004
+  },
+  "development_frames": 48,
+  "development_records_sha256": "fe873e04b01ede321a0f64a644d526f1a0d66868df3c2adf6e371657e0e3c082",
+  "primary_alpha": 0.01,
+  "reported_alpha": [
+    0.002,
+    0.005,
+    0.01,
+    0.02
+  ],
+  "delta": 0.05,
+  "candidate_count": 16,
+  "stages": {
+    "calibration": {
+      "seed_root": 2100,
+      "frames": 4096
+    },
+    "test": {
+      "seed_root": 3100,
+      "frames": 2048
+    }
+  },
+  "calibration_output": "results/calibration/joint_budget_002",
+  "test_output": "results/final/joint_budget_002",
+  "estimand": "uniform source-frame mixture, then uniform audit user; one-sided excess decoded BLER",
+  "status": "prospective, created before either independent stage"
+}

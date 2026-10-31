@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Please cite this versioned software and simulation-data release."
+title: "Decoded-risk MIMO-OFDM receiver study: software and simulation records"
+type: software
+version: 1.0.0
+date-released: 2026-10-31
+repository-code: https://github.com/pengliangtian06-commits/decoded-risk-mimo-ofdm
+url: https://github.com/pengliangtian06-commits/decoded-risk-mimo-ofdm/releases/tag/v1.0.0
+license: AGPL-3.0-only
+authors:
+  - family-names: Tian
+    given-names: Pengliang
+    orcid: https://orcid.org/0009-0003-5941-9797
+  - family-names: Lv
+    given-names: Ruixue
+    orcid: https://orcid.org/0009-0003-6849-9944
+  - family-names: Zhang
+    given-names: Changjiang
+    orcid: https://orcid.org/0009-0002-9936-1377

@@ -1,0 +1,25 @@
+{
+  "stage": "exploratory_development",
+  "seed_root": 1131,
+  "draws_per_condition": 8,
+  "workers": 4,
+  "fft_size": 512,
+  "cyclic_prefix": 32,
+  "taps": 8,
+  "qam_order": 16,
+  "decoder_iterations": 20,
+  "antenna_user_pairs": [[64, 16], [64, 32]],
+  "correlations": [0.0, 0.7],
+  "snr_db": [10, 12, 14],
+  "policies": [
+    {"name": "exact"},
+    {"name": "pcg-exact", "backend": "pcg", "threshold": 0.001},
+    {"name": "pcg-diagonal", "backend": "pcg", "threshold": 0.001, "soft": "diagonal"},
+    {"name": "pcg-i8", "backend": "pcg", "threshold": 0.001, "soft": "interpolate", "anchor_stride": 8},
+    {"name": "pcg-i16", "backend": "pcg", "threshold": 0.001, "soft": "interpolate", "anchor_stride": 16},
+    {"name": "pcg-i32", "backend": "pcg", "threshold": 0.001, "soft": "interpolate", "anchor_stride": 32},
+    {"name": "pcg-i16-loose", "backend": "pcg", "threshold": 0.01, "soft": "interpolate", "anchor_stride": 16},
+    {"name": "pcg-i16-noise", "backend": "pcg", "mode": "noise_residual", "threshold": 0.001, "soft": "interpolate", "anchor_stride": 16},
+    {"name": "mf-i16", "backend": "matrixfree_pcg", "threshold": 0.001, "soft": "interpolate", "anchor_stride": 16}
+  ]
+}
